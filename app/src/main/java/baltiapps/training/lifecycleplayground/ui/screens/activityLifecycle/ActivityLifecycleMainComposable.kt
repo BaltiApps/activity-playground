@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContent
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.outlined.Delete
@@ -29,6 +30,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -106,6 +108,12 @@ fun ActivityLifecycleMainComposable(
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
+                    val lazyColumnState = rememberLazyListState()
+
+                    val setToShow = if (shouldShowComposeLifecycleHistory) {
+                        viewModel.composeLifecycleHistory
+                    } else viewModel.activityStateHistory
+
                     LazyColumn(
                         modifier = Modifier
                             .fillMaxSize(),
@@ -114,10 +122,8 @@ fun ActivityLifecycleMainComposable(
                             alignment = Alignment.CenterVertically
                         ),
                         horizontalAlignment = Alignment.CenterHorizontally,
+                        state = lazyColumnState,
                     ) {
-                        val setToShow = if (shouldShowComposeLifecycleHistory) {
-                            viewModel.composeLifecycleHistory
-                        } else viewModel.activityStateHistory
                         setToShow.toList().sorted().run {
                             if (isEmpty()) {
                                 item {
@@ -129,6 +135,9 @@ fun ActivityLifecycleMainComposable(
                                 }
                             }
                         }
+                    }
+                    LaunchedEffect(setToShow) {
+                        lazyColumnState.scrollToItem(setToShow.size)
                     }
                 }
             },
