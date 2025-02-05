@@ -33,7 +33,7 @@ class ActivityLifecycleChildActivity : ComponentActivity() {
                         painter = painterResource(R.drawable.android_icon),
                         contentDescription = null,
                     )
-                    Text(stringResource(R.string.child_activity))
+                    Text(stringResource(R.string.child_activity_desc))
                 }
             }
         }

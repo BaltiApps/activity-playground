@@ -8,11 +8,13 @@
     <string name="clear_history">Clear history</string>
     <string name="show_dialog">Show dialog</string>
     <string name="alert_dialog_title">Alert dialog</string>
-    <string name="alert_dialog_message">This may trigger lifecycle events (dependent on Android version)</string>
+    <string name="alert_dialog_message">This generally does not trigger lifecycle events (contrary to popular belief)</string>
 
-    <string name="child_activity">Child activity</string>
+    <string name="child_activity">Child act.</string>
+    <string name="child_activity_desc">Child activity</string>
 
-    <string name="child_composable">Child composable</string>
+    <string name="child_composable">Child comp.</string>
+    <string name="child_composable_desc">Child composable</string>
 
     <string name="go_back">Go back</string>
 </resources>

@@ -36,7 +36,7 @@ fun ActivityLifecycleChildComposable(modifier: Modifier = Modifier) {
                 painter = painterResource(R.drawable.jetpack_compose),
                 contentDescription = null,
             )
-            Text(stringResource(R.string.child_composable))
+            Text(stringResource(R.string.child_composable_desc))
         }
     }
 }

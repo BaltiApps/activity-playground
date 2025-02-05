@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -145,6 +146,7 @@ fun ActivityLifecycleMainComposable(
             },
             second = {
                 val scrollState = rememberScrollState()
+                val buttonPadding = PaddingValues(horizontal = 8.dp)
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -158,7 +160,7 @@ fun ActivityLifecycleMainComposable(
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
                         Text(stringResource(R.string.compose_lifecycle_history))
                         Switch(
@@ -176,16 +178,19 @@ fun ActivityLifecycleMainComposable(
                         ),
                     ) {
                         OutlinedButton(
+                            contentPadding = buttonPadding,
                             onClick = showDialog
                         ) {
                             Text(stringResource(R.string.show_dialog))
                         }
                         OutlinedButton(
+                            contentPadding = buttonPadding,
                             onClick = launchChildActivity
                         ) {
                             Text(stringResource(R.string.child_activity))
                         }
                         OutlinedButton(
+                            contentPadding = buttonPadding,
                             onClick = launchChildComposable
                         ) {
                             Text(stringResource(R.string.child_composable))
