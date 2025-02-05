@@ -87,18 +87,18 @@ class ActivityLifecycle: ComponentActivity() {
     }
 
     override fun onPause() {
-        super.onPause()
         viewModel.pushToActivityHistory("onPause")
+        super.onPause()
     }
 
     override fun onStop() {
-        super.onStop()
         viewModel.pushToActivityHistory("onStop")
+        super.onStop()
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         viewModel.pushToActivityHistory("onDestroy")
+        super.onDestroy()
     }
 
     override fun onRestart() {
