@@ -41,7 +41,7 @@ class ActivityLifecycle: ComponentActivity() {
 
     private fun launchChildActivity() {
         startActivity(
-            Intent(this, ActivityLifecycleChildActivity::class.java)
+            Intent(this, ChildActivity::class.java)
         )
     }
 
@@ -63,7 +63,7 @@ class ActivityLifecycle: ComponentActivity() {
                     startDestination = "main",
                 ) {
                     composable(route = "main") {
-                        ActivityLifecycleMainComposable(
+                        MainComposable(
                             viewModel = viewModel,
                             showDialog = ::showDialog,
                             onBack = {
@@ -80,7 +80,7 @@ class ActivityLifecycle: ComponentActivity() {
                         )
                     }
                     composable(route = "child_composable") {
-                        ActivityLifecycleChildComposable()
+                        ChildComposable()
                     }
                     dialog(route = "dialog_composable") {
                         DialogComposable()

@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.screens.activityLifecycle.ActivityLifecycle"/>
-        <activity android:name=".ui.screens.activityLifecycle.ActivityLifecycleChildActivity"/>
+        <activity android:name=".ui.screens.activityLifecycle.ChildActivity"/>
         <activity
             android:name=".ui.screens.activityLifecycle.DialogActivity"
             android:theme="@style/Theme.LifecyclePlayground.DialogActivity" />

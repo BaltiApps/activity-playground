@@ -20,7 +20,7 @@ import baltiapps.training.lifecycleplayground.R
 
 @Preview
 @Composable
-fun ActivityLifecycleChildComposable() {
+fun ChildComposable() {
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) { padding ->

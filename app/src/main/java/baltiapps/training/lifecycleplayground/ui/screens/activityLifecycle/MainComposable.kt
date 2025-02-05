@@ -51,7 +51,7 @@ import com.google.accompanist.adaptive.TwoPane
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
-fun ActivityLifecycleMainComposable(
+fun MainComposable(
     viewModel: ActivityLifecycleViewModel,
     showDialog: () -> Unit,
     onBack: () -> Unit,
