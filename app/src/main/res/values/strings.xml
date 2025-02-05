@@ -12,6 +12,7 @@
 
     <string name="child_activity">Child act.</string>
     <string name="child_activity_desc">Child activity</string>
+    <string name="child_activity_desc2">Should trigger till \"onStop\" and \"onRestart\" but not \"onDestroy\"</string>
 
     <string name="child_composable">Child comp.</string>
     <string name="child_composable_desc">Child composable</string>
