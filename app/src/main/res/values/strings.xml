@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Lifecycle playground</string>
+
+    <string name="activity_lifecycle">Activity lifecycle</string>
+    <string name="activity_lifecycle_history">Activity lifecycle history</string>
+    <string name="compose_lifecycle_history">Compose lifecycle history</string>
+    <string name="empty">Empty!</string>
+    <string name="clear_history">Clear history</string>
+    <string name="show_dialog">Show dialog</string>
+    <string name="alert_dialog_title">Alert dialog</string>
+    <string name="alert_dialog_message">This may trigger lifecycle events (dependent on Android version)</string>
+
+    <string name="child_activity">Child activity</string>
+
+    <string name="child_composable">Child composable</string>
+
+    <string name="go_back">Go back</string>
 </resources>
