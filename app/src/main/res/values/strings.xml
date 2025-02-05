@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lifecycle playground</string>
+    <string name="app_name">Activity playground</string>
 
     <string name="activity_lifecycle">Activity lifecycle</string>
     <string name="activity_lifecycle_history">Activity lifecycle history</string>
