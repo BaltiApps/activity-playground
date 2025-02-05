@@ -12,20 +12,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import baltiapps.training.lifecycleplayground.R
 
 @Preview
 @Composable
-fun ActivityLifecycleChildComposable(modifier: Modifier = Modifier) {
+fun ActivityLifecycleChildComposable() {
     Scaffold(
-        modifier = modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) { padding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding),
+                .padding(padding)
+                .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(
                 space = 16.dp,
                 alignment = Alignment.CenterVertically,
@@ -36,7 +39,14 @@ fun ActivityLifecycleChildComposable(modifier: Modifier = Modifier) {
                 painter = painterResource(R.drawable.jetpack_compose),
                 contentDescription = null,
             )
-            Text(stringResource(R.string.child_composable_desc))
+            Text(
+                text = stringResource(R.string.child_composable_desc),
+                fontWeight = FontWeight.Medium,
+            )
+            Text(
+                text = stringResource(R.string.child_composable_desc2),
+                textAlign = TextAlign.Center,
+            )
         }
     }
 }

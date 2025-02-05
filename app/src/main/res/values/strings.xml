@@ -16,6 +16,7 @@
 
     <string name="child_composable">Child comp.</string>
     <string name="child_composable_desc">Child composable</string>
+    <string name="child_composable_desc2">Should trigger till \"ON_STOP\" but not \"ON_DESTROY\"</string>\
 
     <string name="dialog_activity">Dialog act.</string>
     <string name="dialog_activity_desc">Child dialog activity</string>
