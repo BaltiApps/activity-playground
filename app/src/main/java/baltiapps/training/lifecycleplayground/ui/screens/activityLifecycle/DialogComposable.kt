@@ -3,7 +3,6 @@ package baltiapps.training.lifecycleplayground.ui.screens.activityLifecycle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,6 +40,7 @@ fun DialogComposable() {
         )
         Text(
             text = stringResource(R.string.dialog_composable_desc),
+            color = MaterialTheme.colorScheme.onSurface,
             fontWeight = FontWeight.Medium,
         )
         Spacer(
@@ -49,6 +49,7 @@ fun DialogComposable() {
         Text(
             text = stringResource(R.string.dialog_composable_desc2),
             style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface,
             fontStyle = FontStyle.Italic,
             textAlign = TextAlign.Center,
         )
