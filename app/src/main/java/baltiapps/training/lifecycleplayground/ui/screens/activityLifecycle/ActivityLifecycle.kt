@@ -44,6 +44,12 @@ class ActivityLifecycle: ComponentActivity() {
         )
     }
 
+    private fun launchDialogActivity() {
+        startActivity(
+            Intent(this, DialogActivity::class.java)
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.pushToActivityHistory("onCreate")
@@ -65,7 +71,8 @@ class ActivityLifecycle: ComponentActivity() {
                             launchChildComposable = {
                                 navController.navigate("child_composable")
                             },
-                            launchChildActivity = ::launchChildActivity
+                            launchChildActivity = ::launchChildActivity,
+                            launchDialogActivity = ::launchDialogActivity,
                         )
                     }
                     composable(route = "child_composable") {

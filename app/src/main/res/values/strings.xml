@@ -16,5 +16,9 @@
     <string name="child_composable">Child comp.</string>
     <string name="child_composable_desc">Child composable</string>
 
+    <string name="dialog_activity">Dialog act.</string>
+    <string name="dialog_activity_desc">Child dialog activity</string>
+    <string name="dialog_activity_desc2">This should trigger \"onPause\" on activity and \"ON_PAUSE\" on compose lifecycle".</string>
+
     <string name="go_back">Go back</string>
 </resources>
