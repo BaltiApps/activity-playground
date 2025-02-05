@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.dialog
 import androidx.navigation.compose.rememberNavController
 import baltiapps.training.lifecycleplayground.R
 import baltiapps.training.lifecycleplayground.ui.theme.LifecyclePlaygroundTheme
@@ -73,10 +74,16 @@ class ActivityLifecycle: ComponentActivity() {
                             },
                             launchChildActivity = ::launchChildActivity,
                             launchDialogActivity = ::launchDialogActivity,
+                            launchDialogComposable = {
+                                navController.navigate("dialog_composable")
+                            }
                         )
                     }
                     composable(route = "child_composable") {
                         ActivityLifecycleChildComposable()
+                    }
+                    dialog(route = "dialog_composable") {
+                        DialogComposable()
                     }
                 }
             }

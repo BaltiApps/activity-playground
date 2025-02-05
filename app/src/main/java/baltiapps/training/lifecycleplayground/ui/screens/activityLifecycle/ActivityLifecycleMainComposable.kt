@@ -58,6 +58,7 @@ fun ActivityLifecycleMainComposable(
     launchChildComposable: () -> Unit,
     launchChildActivity: () -> Unit,
     launchDialogActivity: () -> Unit,
+    launchDialogComposable: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
 
@@ -202,6 +203,12 @@ fun ActivityLifecycleMainComposable(
                             onClick = launchDialogActivity
                         ) {
                             Text(stringResource(R.string.dialog_activity))
+                        }
+                        FilledTonalButton(
+                            contentPadding = buttonPadding,
+                            onClick = launchDialogComposable
+                        ) {
+                            Text(stringResource(R.string.dialog_composable))
                         }
                         FilledIconButton(
                             onClick = {
