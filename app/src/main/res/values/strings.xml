@@ -11,11 +11,11 @@
     <string name="alert_dialog_message">This generally does not trigger lifecycle events (contrary to popular belief)</string>
 
     <string name="child_activity">Child act.</string>
-    <string name="child_activity_desc">Child activity</string>
+    <string name="child_activity_desc">Child fullscreen activity</string>
     <string name="child_activity_desc2">Should trigger till \"onStop\" and \"onRestart\" but not \"onDestroy\"</string>
 
     <string name="child_composable">Child comp.</string>
-    <string name="child_composable_desc">Child composable</string>
+    <string name="child_composable_desc">Child fullscreen composable</string>
     <string name="child_composable_desc2">Should trigger till \"ON_STOP\" but not \"ON_DESTROY\"</string>\
 
     <string name="dialog_activity">Dialog act.</string>
