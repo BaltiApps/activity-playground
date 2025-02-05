@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -42,14 +43,17 @@ class DialogActivity: ComponentActivity() {
                     Spacer(
                         modifier = Modifier.size(16.dp)
                     )
-                    Text(stringResource(R.string.dialog_activity_desc))
+                    Text(
+                        text = stringResource(R.string.dialog_activity_desc),
+                        fontWeight = FontWeight.Medium,
+                    )
                     Spacer(
                         modifier = Modifier.size(8.dp)
                     )
                     Text(
                         text = stringResource(R.string.dialog_activity_desc2),
-                        style = MaterialTheme.typography.bodySmall,
-                        fontWeight = FontWeight.SemiBold,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontStyle = FontStyle.Italic,
                         textAlign = TextAlign.Center,
                     )
                 }
