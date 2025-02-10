@@ -32,6 +32,9 @@
 
     <string name="activity_stacks">Activity stacks</string>
 
+    <string name="launch_info">Launch info</string>
+    <string name="app_shortcuts_desc">Some of these activities can be launched with long press on the app icon with app shortcuts (Android Oreo 8.1+)</string>
+
     <string name="object_id">Object ID</string>
     <string name="base_activity">Base activity</string>
     <string name="task_id">Task ID</string>

@@ -2,6 +2,8 @@ package baltiapps.training.lifecycleplayground.ui.screens.activityStacks
 
 import android.content.Intent
 import androidx.activity.compose.LocalActivity
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,23 +19,29 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -43,6 +51,7 @@ import baltiapps.training.lifecycleplayground.ui.components.InfoBubble
 import baltiapps.training.lifecycleplayground.ui.components.getTwoPaneStrategy
 import com.google.accompanist.adaptive.TwoPane
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StackCommonLayout(
     activityName: String,
@@ -63,8 +72,33 @@ fun StackCommonLayout(
     var isCheckedFlagClearTop by rememberSaveable { mutableStateOf(false) }
     var isCheckedFlagSingleTop by rememberSaveable { mutableStateOf(false) }
 
+    var shouldShowDialog by remember { mutableStateOf(false) }
+
+    if (shouldShowDialog) {
+        Alert {
+            shouldShowDialog = false
+        }
+    }
+
     Scaffold(
         contentWindowInsets = WindowInsets.safeContent,
+        topBar = {
+            TopAppBar(
+                title = {},
+                actions = {
+                    IconButton(
+                        onClick = {
+                            shouldShowDialog = !shouldShowDialog
+                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.Info,
+                            contentDescription = stringResource(R.string.launch_info)
+                        )
+                    }
+                }
+            )
+        }
     ) { innerPadding ->
 
         TwoPane(
@@ -239,4 +273,35 @@ private fun CheckBoxRow(
         Spacer(Modifier.size(8.dp))
         Text(label)
     }
+}
+
+@Composable
+fun Alert(
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        confirmButton = {
+            Text(
+                modifier = Modifier.clickable { onDismiss() },
+                text = stringResource(android.R.string.ok)
+            )
+        },
+        text = {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Image(
+                    modifier = Modifier.fillMaxWidth(),
+                    painter = painterResource(R.drawable.app_shortcuts),
+                    contentDescription = null,
+                )
+                Spacer(modifier = Modifier.size(16.dp))
+                Text(
+                    text = stringResource(R.string.app_shortcuts_desc),
+                    textAlign = TextAlign.Justify,
+                )
+            }
+        },
+    )
 }
