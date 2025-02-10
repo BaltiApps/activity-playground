@@ -60,9 +60,9 @@
     <string name="activity_desc_B_3">Another fresh instance of this activity will not launch when this activity is already showing.</string>
     <string name="activity_desc_C_1">launchMode = singleTask</string>
     <string name="activity_desc_C_2">Launches activity in new task.</string>
-    <string name="activity_desc_C_3">Any activity launched above it is destroyed if this activity is called again, in the same task.</string>
+    <string name="activity_desc_C_3">Any activity launched on top of it is destroyed if this activity is called again.</string>
     <string name="activity_desc_D_1">launchMode = singleInstance</string>
-    <string name="activity_desc_D_2">Only one instance of this activity will be present in the task, any new activity will be launched in other task.</string>
+    <string name="activity_desc_D_2">Only one instance of this activity will be present in the task. Other activities cannot be called on top of it, they will launch in other task.</string>
     <string name="activity_desc_D_3">Calling this activity again will destroy activities called after this.</string>
     <string name="activity_desc_E_1">launchMode = singleInstancePerTask</string>
     <string name="activity_desc_E_2">Unlike \"singleInstance\", activities can be launched on top.</string>
