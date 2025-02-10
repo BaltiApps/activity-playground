@@ -5,7 +5,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipBox
@@ -14,6 +13,8 @@ import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import baltiapps.training.lifecycleplayground.R
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,7 +40,7 @@ fun InfoBubble(
                     scope.launch { tooltipState.show() }
                 },
             imageVector = Icons.Outlined.Info,
-            contentDescription = "Info",
+            contentDescription = stringResource(R.string.more_info),
         )
     }
 }
