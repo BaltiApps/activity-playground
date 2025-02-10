@@ -106,6 +106,7 @@ fun StackCommonLayout(
                 .fillMaxSize()
                 .padding(innerPadding),
             first = {
+                val scrollState = rememberScrollState()
                 Column(
                     modifier = Modifier
                         .fillMaxSize(),
@@ -113,7 +114,8 @@ fun StackCommonLayout(
                     Column(
                         modifier = Modifier
                             .weight(1F)
-                            .fillMaxWidth(),
+                            .fillMaxWidth()
+                            .verticalScroll(scrollState),
                         verticalArrangement = Arrangement.spacedBy(
                             space = 8.dp,
                             alignment = Alignment.CenterVertically
@@ -141,6 +143,7 @@ fun StackCommonLayout(
                             }
                         }
                     }
+                    Spacer(modifier = Modifier.size(16.dp))
                     Text("${stringResource(R.string.task_id)} - ${activity.taskId}")
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -279,6 +282,7 @@ private fun CheckBoxRow(
 fun Alert(
     onDismiss: () -> Unit,
 ) {
+    val dialogScrollState = rememberScrollState()
     AlertDialog(
         onDismissRequest = onDismiss,
         confirmButton = {
@@ -289,6 +293,8 @@ fun Alert(
         },
         text = {
             Column(
+                modifier = Modifier
+                    .verticalScroll(dialogScrollState),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Image(
