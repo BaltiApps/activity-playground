@@ -20,6 +20,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.FilledTonalButton
@@ -106,44 +107,45 @@ fun MainComposable(
                 .padding(paddingValues)
                 .fillMaxSize(),
             first = {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp)
-                        .border(width = 1.dp, color = MaterialTheme.colorScheme.outline),
-                    verticalArrangement = Arrangement.spacedBy(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    val lazyColumnState = rememberLazyListState()
-
-                    val setToShow = if (shouldShowComposeLifecycleHistory) {
-                        viewModel.composeLifecycleHistory
-                    } else viewModel.activityStateHistory
-
-                    LazyColumn(
+                Card {
+                    Column(
                         modifier = Modifier
-                            .fillMaxSize(),
-                        verticalArrangement = Arrangement.spacedBy(
-                            space = 8.dp,
-                            alignment = Alignment.CenterVertically
-                        ),
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        state = lazyColumnState,
                     ) {
-                        setToShow.toList().sorted().run {
-                            if (isEmpty()) {
-                                item {
-                                    Text(stringResource(R.string.empty))
-                                }
-                            } else {
-                                itemsIndexed(this) { index, item ->
-                                    Text("$index - $item")
+                        val lazyColumnState = rememberLazyListState()
+
+                        val setToShow = if (shouldShowComposeLifecycleHistory) {
+                            viewModel.composeLifecycleHistory
+                        } else viewModel.activityStateHistory
+
+                        LazyColumn(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalArrangement = Arrangement.spacedBy(
+                                space = 8.dp,
+                                alignment = Alignment.CenterVertically
+                            ),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            state = lazyColumnState,
+                        ) {
+                            setToShow.toList().sorted().run {
+                                if (isEmpty()) {
+                                    item {
+                                        Text(stringResource(R.string.empty))
+                                    }
+                                } else {
+                                    itemsIndexed(this) { index, item ->
+                                        Text("$index - $item")
+                                    }
                                 }
                             }
                         }
-                    }
-                    LaunchedEffect(setToShow) {
-                        lazyColumnState.scrollToItem(setToShow.size)
+                        LaunchedEffect(setToShow) {
+                            lazyColumnState.scrollToItem(setToShow.size)
+                        }
                     }
                 }
             },
