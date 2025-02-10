@@ -28,6 +28,20 @@
         <activity
             android:name=".ui.screens.activityLifecycle.DialogActivity"
             android:theme="@style/Theme.LifecyclePlayground.DialogActivity" />
+
+        <activity android:name=".ui.screens.activityStacks.ActivityA" />
+        <activity
+            android:name=".ui.screens.activityStacks.ActivityB"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.screens.activityStacks.ActivityC"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.screens.activityStacks.ActivityD"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".ui.screens.activityStacks.ActivityE"
+            android:launchMode="singleInstancePerTask" />
     </application>
 
 </manifest>

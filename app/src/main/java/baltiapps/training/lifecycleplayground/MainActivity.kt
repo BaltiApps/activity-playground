@@ -5,7 +5,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import baltiapps.training.lifecycleplayground.ui.screens.activityLifecycle.ActivityLifecycle
+import baltiapps.training.lifecycleplayground.ui.screens.activityStacks.ActivityA
 import baltiapps.training.lifecycleplayground.ui.theme.LifecyclePlaygroundTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,11 +26,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             LifecyclePlaygroundTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Box(
+                    Column(
                         modifier = Modifier
                             .padding(innerPadding)
                             .fillMaxSize(),
-                        contentAlignment = Alignment.Center
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
                     ) {
                         Button(
                             onClick = {
@@ -38,6 +41,15 @@ class MainActivity : ComponentActivity() {
                             }
                         ) {
                             Text(stringResource(R.string.activity_lifecycle))
+                        }
+                        Button(
+                            onClick = {
+                                startActivity(
+                                    Intent(this@MainActivity, ActivityA::class.java)
+                                )
+                            }
+                        ) {
+                            Text(stringResource(R.string.activity_stacks))
                         }
                     }
                 }

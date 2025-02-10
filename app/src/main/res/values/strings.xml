@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Activity playground</string>
 
+    <!--lifecycle-->
+
     <string name="activity_lifecycle">Activity lifecycle</string>
     <string name="activity_lifecycle_history">Activity lifecycle history</string>
     <string name="compose_lifecycle_history">Compose lifecycle history</string>
@@ -25,6 +27,41 @@
     <string name="dialog_composable">Dialog comp.</string>
     <string name="dialog_composable_desc">Child dialog composable</string>
     <string name="dialog_composable_desc2">Should trigger only \"ON_PAUSE\" on compose lifecycle</string>
+
+    <!--stack-->
+
+    <string name="activity_stacks">Activity stacks</string>
+
+    <string name="object_id">Object ID</string>
+    <string name="base_activity">Base activity</string>
+    <string name="task_id">Task ID</string>
+    <string name="activity_count">Activity count in task</string>
+    <string name="app_tasks">App tasks</string>
+    <string name="running_tasks">Running tasks</string>
+    <string name="launch">Launch</string>
+
+    <string name="select_activity">Select activity to launch</string>
+    <string name="standard_activity">Activity A - standard</string>
+    <string name="single_top">Activity B - singleTop</string>
+    <string name="single_task">Activity C - singleTask</string>
+    <string name="single_instance">Activity D - singleInstance</string>
+    <string name="single_instance_per_task">Activity E - singleInstancePerTask</string>
+
+    <string name="activity_desc_A">launchMode = standard</string>
+    <string name="activity_desc_B_1">launchMode = singleTop</string>
+    <string name="activity_desc_B_2">Only one instance of this activity stays on top.</string>
+    <string name="activity_desc_B_3">Another fresh instance of this activity will not launch when this activity is already showing.</string>
+    <string name="activity_desc_C_1">launchMode = singleTask</string>
+    <string name="activity_desc_C_2">Launches activity in new task.</string>
+    <string name="activity_desc_C_3">Any activity launched above it is destroyed if this activity is called again, in the same task.</string>
+    <string name="activity_desc_D_1">launchMode = singleInstance</string>
+    <string name="activity_desc_D_2">Only one instance of this activity will be present in the task, any new activity will be launched in other task.</string>
+    <string name="activity_desc_D_3">Calling this activity again will destroy activities called after this.</string>
+    <string name="activity_desc_E_1">launchMode = singleInstancePerTask</string>
+    <string name="activity_desc_E_2">Unlike \"singleInstance\", activities can be launched on top.</string>
+    <string name="activity_desc_E_3">New instance will not destroy activities on top ONLY IF \"multiple tasks\" flag is enabled.</string>
+
+    <!--misc-->
 
     <string name="go_back">Go back</string>
 </resources>
