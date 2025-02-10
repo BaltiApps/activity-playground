@@ -39,6 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import baltiapps.training.lifecycleplayground.R
+import baltiapps.training.lifecycleplayground.ui.components.InfoBubble
 import baltiapps.training.lifecycleplayground.ui.components.getTwoPaneStrategy
 import com.google.accompanist.adaptive.TwoPane
 
@@ -107,9 +108,27 @@ fun StackCommonLayout(
                         }
                     }
                     Text("${stringResource(R.string.task_id)} - ${activity.taskId}")
-                    Text("${stringResource(R.string.app_tasks)} - ${getAppTasksList()}")
-                    Text("${stringResource(R.string.running_tasks)} - ${getRunningTasksList()}")
-                    Text("${stringResource(R.string.activity_count)} - ${getActivitiesCount()}")
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Text("${stringResource(R.string.app_tasks)} - ${getAppTasksList()}")
+                        InfoBubble(stringResource(R.string.tooltip_app_tasks))
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Text("${stringResource(R.string.running_tasks)} - ${getRunningTasksList()}")
+                        InfoBubble(stringResource(R.string.tooltip_running_tasks))
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Text("${stringResource(R.string.activity_count)} - ${getActivitiesCount()}")
+                        InfoBubble(stringResource(R.string.tooltip_activity_count))
+                    }
                     Text("${stringResource(R.string.base_activity)} - ${getBaseActivity()}")
                 }
             },

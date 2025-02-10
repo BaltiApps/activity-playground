@@ -47,6 +47,10 @@
     <string name="single_instance">Activity D - singleInstance</string>
     <string name="single_instance_per_task">Activity E - singleInstancePerTask</string>
 
+    <string name="tooltip_app_tasks">Obtained from ActivityManager.appTasks</string>
+    <string name="tooltip_running_tasks">Obtained from ActivityManager.getRunningTasks</string>
+    <string name="tooltip_activity_count">Obtained from ActivityManager getRunningTasks for Q and below, else appTasks</string>
+
     <string name="activity_desc_A">launchMode = standard</string>
     <string name="activity_desc_B_1">launchMode = singleTop</string>
     <string name="activity_desc_B_2">Only one instance of this activity stays on top.</string>
