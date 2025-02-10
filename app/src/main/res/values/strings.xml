@@ -65,6 +65,13 @@
     <string name="activity_desc_E_2">Unlike \"singleInstance\", activities can be launched on top.</string>
     <string name="activity_desc_E_3">New instance will not destroy activities on top ONLY IF \"multiple tasks\" flag is enabled.</string>
 
+    <!--shortcuts-->
+
+    <string name="shortcut_short_label_B">B - s.Top</string>
+    <string name="shortcut_short_label_C">C - s.Task</string>
+    <string name="shortcut_short_label_D">D - s.Instance</string>
+    <string name="shortcut_short_label_E">E - s.Inst.PerTask</string>
+
     <!--misc-->
 
     <string name="go_back">Go back</string>
