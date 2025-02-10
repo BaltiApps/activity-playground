@@ -134,77 +134,77 @@ fun StackCommonLayout(
             },
             second = {
                 val scrollState = rememberScrollState()
-                Row(
+                Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .verticalScroll(scrollState),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalArrangement = Arrangement.Center,
                 ) {
-                    Column(
-                        modifier = Modifier.weight(1F),
+                    CheckBoxRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        isChecked = isCheckedFlagNewTask,
+                        onChanged = { isCheckedFlagNewTask = it },
+                        label = "FLAG - NEW_TASK",
+                    )
+                    CheckBoxRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        isChecked = isCheckedFlagMultipleTask,
+                        onChanged = { isCheckedFlagMultipleTask = it },
+                        label = "FLAG - MULTIPLE_TASK",
+                    )
+                    CheckBoxRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        isChecked = isCheckedFlagClearTop,
+                        onChanged = { isCheckedFlagClearTop = it },
+                        label = "FLAG - CLEAR_TOP",
+                    )
+                    CheckBoxRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        isChecked = isCheckedFlagSingleTop,
+                        onChanged = { isCheckedFlagSingleTop = it },
+                        label = "FLAG - SINGLE_TOP",
+                    )
+                    Spacer(
+                        modifier = Modifier.size(8.dp)
+                    )
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        CheckBoxRow(
-                            modifier = Modifier.fillMaxWidth(),
-                            isChecked = isCheckedFlagNewTask,
-                            onChanged = { isCheckedFlagNewTask = it },
-                            label = "FLAG - NEW_TASK",
-                        )
-                        CheckBoxRow(
-                            modifier = Modifier.fillMaxWidth(),
-                            isChecked = isCheckedFlagMultipleTask,
-                            onChanged = { isCheckedFlagMultipleTask = it },
-                            label = "FLAG - MULTIPLE_TASK",
-                        )
-                        CheckBoxRow(
-                            modifier = Modifier.fillMaxWidth(),
-                            isChecked = isCheckedFlagClearTop,
-                            onChanged = { isCheckedFlagClearTop = it },
-                            label = "FLAG - CLEAR_TOP",
-                        )
-                        CheckBoxRow(
-                            modifier = Modifier.fillMaxWidth(),
-                            isChecked = isCheckedFlagSingleTop,
-                            onChanged = { isCheckedFlagSingleTop = it },
-                            label = "FLAG - SINGLE_TOP",
-                        )
-                        Spacer(
-                            modifier = Modifier.size(8.dp)
-                        )
                         LaunchDropdown(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.weight(1F),
                             selectedIndex = selectedIndex,
                             onItemSelected = { selectedIndex = it },
                             activityList = activityList,
                         )
-                    }
-                    FloatingActionButton(
-                        onClick = {
-                            val flagMap = mapOf(
-                                Pair(isCheckedFlagNewTask, Intent.FLAG_ACTIVITY_NEW_TASK),
-                                Pair(isCheckedFlagMultipleTask, Intent.FLAG_ACTIVITY_MULTIPLE_TASK),
-                                Pair(isCheckedFlagClearTop, Intent.FLAG_ACTIVITY_CLEAR_TOP),
-                                Pair(isCheckedFlagSingleTop, Intent.FLAG_ACTIVITY_SINGLE_TOP),
-                            )
+                        FloatingActionButton(
+                            onClick = {
+                                val flagMap = mapOf(
+                                    Pair(isCheckedFlagNewTask, Intent.FLAG_ACTIVITY_NEW_TASK),
+                                    Pair(isCheckedFlagMultipleTask, Intent.FLAG_ACTIVITY_MULTIPLE_TASK),
+                                    Pair(isCheckedFlagClearTop, Intent.FLAG_ACTIVITY_CLEAR_TOP),
+                                    Pair(isCheckedFlagSingleTop, Intent.FLAG_ACTIVITY_SINGLE_TOP),
+                                )
 
-                            val flagsToApply: List<Int> = flagMap.filter { it.key }.map { it.value }
+                                val flagsToApply: List<Int> = flagMap.filter { it.key }.map { it.value }
 
-                            activityList[selectedIndex].copy(flags = flagsToApply).run {
-                                selectedIndex = 0
+                                activityList[selectedIndex].copy(flags = flagsToApply).run {
+                                    selectedIndex = 0
 
-                                isCheckedFlagNewTask = false
-                                isCheckedFlagMultipleTask = false
-                                isCheckedFlagClearTop = false
-                                isCheckedFlagSingleTop = false
+                                    isCheckedFlagNewTask = false
+                                    isCheckedFlagMultipleTask = false
+                                    isCheckedFlagClearTop = false
+                                    isCheckedFlagSingleTop = false
 
-                                activity.launch()
+                                    activity.launch()
+                                }
                             }
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.PlayArrow,
+                                contentDescription = stringResource(R.string.launch)
+                            )
                         }
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.PlayArrow,
-                            contentDescription = stringResource(R.string.launch)
-                        )
                     }
                 }
             },
