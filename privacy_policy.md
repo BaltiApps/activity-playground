@@ -1,7 +1,7 @@
-# Activity Playground
+# Activity playground
 ## Privacy policy
 
-This is a privacy policy regarding the app **Activity Playground** on Google Play Store.  
+This is a privacy policy regarding the app **Activity playground** on Google Play Store.  
 
 ### Collection of personal information
 - This app does not collect any personal information.  
