@@ -1,6 +1,32 @@
+import java.util.Base64
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
+}
+
+fun getEnvValue(key: String): String? {
+    val envData = System.getenv(key)
+    if (envData != null) return envData
+
+    val properties = Properties()
+    val propertiesFile = project.rootProject.file("local.properties")
+    if (propertiesFile.exists()) {
+        propertiesFile.inputStream().use {
+            properties.load(it)
+        }
+    }
+    return properties.getProperty(key)
+}
+
+fun getKeyStoreFile(base64String: String): File {
+    val keystoreDir = File(rootDir, "keystore")
+    val keystoreFile = File(keystoreDir, "release-key.jks")
+    keystoreDir.mkdirs()
+    val decoded = Base64.getDecoder().decode(base64String)
+    keystoreFile.writeBytes(decoded)
+    return keystoreFile
 }
 
 android {
@@ -20,6 +46,15 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = getKeyStoreFile(getEnvValue("KEYSTORE_BASE64") ?: "")
+            storePassword = getEnvValue("KEYSTORE_PASSWORD")
+            keyAlias = getEnvValue("KEY_ALIAS")
+            keyPassword = getEnvValue("KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -27,6 +62,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     buildFeatures {
@@ -41,6 +77,10 @@ android {
 
 kotlin {
     jvmToolchain(25)
+}
+
+base {
+    archivesName.set("ActivityPlayground")
 }
 
 dependencies {
