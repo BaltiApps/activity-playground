@@ -18,7 +18,7 @@ fun Activity.getAppTasksList(): List<Int> {
     val tasks = activityManager.appTasks
     tasks
         .map { it.taskInfo }
-        .forEach { list.add(it.taskId) }
+        .forEach { it?.taskId?.run { list.add(this) } }
     return list
 }
 
@@ -39,7 +39,7 @@ fun Activity.getActivitiesCount(): Int {
         val tasks = activityManager.appTasks
         tasks
             .map { it.taskInfo }
-            .find { it.taskId == taskId }?.numActivities ?: 0
+            .find { it?.taskId == taskId }?.numActivities ?: 0
     }
 }
 
@@ -60,7 +60,7 @@ fun Activity.getTaskBase(): String {
         val tasks = activityManager.appTasks
         tasks
             .map { it.taskInfo }
-            .find { it.taskId == taskId }?.baseActivity
+            .find { it?.taskId == taskId }?.baseActivity
     }
 
     val className = baseActivity?.shortClassName ?: ""

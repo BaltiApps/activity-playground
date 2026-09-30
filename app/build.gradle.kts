@@ -31,12 +31,12 @@ fun getKeyStoreFile(base64String: String): File {
 
 android {
     namespace = "baltiapps.training.lifecycleplayground"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "baltiapps.training.lifecycleplayground"
         minSdk = 21
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
