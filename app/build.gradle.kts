@@ -29,6 +29,10 @@ fun getKeyStoreFile(base64String: String): File {
     return keystoreFile
 }
 
+val versionMajor = 2
+val versionMinor = 0
+val versionPatch = 0
+
 android {
     namespace = "baltiapps.training.lifecycleplayground"
     compileSdk = 37
@@ -37,8 +41,8 @@ android {
         applicationId = "baltiapps.training.lifecycleplayground"
         minSdk = 21
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -80,7 +84,7 @@ kotlin {
 }
 
 base {
-    archivesName.set("ActivityPlayground")
+    archivesName.set("ActivityPlayground-v${versionMajor}.${versionMinor}.${versionPatch}")
 }
 
 dependencies {
